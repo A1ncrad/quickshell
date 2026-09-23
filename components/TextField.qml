@@ -8,20 +8,21 @@ Rectangle {
 
     property alias text: input.text
     property alias icon: glyph.text
+    property alias echoMode: input.echoMode // TextInput.Password for passwords
     property string placeholder: ""
 
     function focusInput() { input.forceActiveFocus() }
 
-    implicitWidth: 300
-    implicitHeight: 40
+    implicitWidth: Theme.fieldWidth
+    implicitHeight: Theme.fieldHeight
     radius: height / 2
-    color: Qt.alpha(Theme.surfaceVariant, 0.5)
+    color: Theme.controlFill
 
     RowLayout {
         anchors.fill: parent
-        anchors.leftMargin: 14
-        anchors.rightMargin: 14
-        spacing: 10
+        anchors.leftMargin: Theme.fieldPadding
+        anchors.rightMargin: Theme.fieldPadding
+        spacing: Theme.gap
 
         Icon {
             id: glyph

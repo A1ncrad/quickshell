@@ -3,13 +3,13 @@ import qs.config
 
 // Horizontal divider with some vertical breathing room
 Item {
-    implicitWidth: 1
-    implicitHeight: 9
+    implicitWidth: Theme.borderWidth
+    implicitHeight: Theme.separatorSpace
 
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width
-        height: 1
+        height: Theme.borderWidth
         color: Theme.surfaceVariant
     }
 }

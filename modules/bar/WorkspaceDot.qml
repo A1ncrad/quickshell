@@ -5,14 +5,14 @@ import qs.config
 Rectangle {
     property bool active: false
 
-    implicitWidth: active ? 11 : 6
+    implicitWidth: active ? Theme.dotSizeActive : Theme.dotSize
     implicitHeight: implicitWidth
     radius: width / 2
     color: active ? "transparent" : Theme.surfaceVariant
-    border.width: active ? 2 : 0
+    border.width: active ? Theme.ringWidth : 0
     border.color: Theme.primary
 
     Behavior on implicitWidth {
-        NumberAnimation { duration: 150; easing.type: Easing.OutCubic }
+        NumberAnimation { duration: Theme.durationShort; easing.type: Theme.easing }
     }
 }

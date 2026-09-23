@@ -9,8 +9,8 @@ Rectangle {
 
     signal clicked()
 
-    implicitWidth: 28
-    implicitHeight: 28
+    implicitWidth: Theme.controlSize
+    implicitHeight: Theme.controlSize
     radius: Theme.radius
     color: hover.hovered ? Theme.surfaceVariant : "transparent"
 

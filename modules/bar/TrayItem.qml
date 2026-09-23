@@ -12,15 +12,15 @@ Rectangle {
     signal activated()
     signal menuRequested()
 
-    implicitWidth: 32
-    implicitHeight: 32
+    implicitWidth: Theme.itemSize
+    implicitHeight: Theme.itemSize
     radius: Theme.radius
     color: hover.hovered ? Theme.surfaceVariant : "transparent"
 
     IconImage {
         anchors.centerIn: parent
         source: root.item?.icon ?? ""
-        implicitSize: 20
+        implicitSize: Theme.iconSizeLarge
     }
 
     HoverHandler { id: hover }

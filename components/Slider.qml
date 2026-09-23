@@ -13,7 +13,7 @@ Item {
 
     function moveTo(value) { moved(Math.max(0, Math.min(1, value))) }
 
-    implicitWidth: 160
+    implicitWidth: Theme.sliderWidth
     implicitHeight: handle.height
 
     ProgressBar {
@@ -26,7 +26,7 @@ Item {
 
     Rectangle {
         id: handle
-        width: 14
+        width: Theme.knobSize
         height: width
         radius: width / 2
         anchors.verticalCenter: parent.verticalCenter

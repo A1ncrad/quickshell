@@ -14,17 +14,17 @@ Rectangle {
 
     signal clicked()
 
-    implicitWidth: row.implicitWidth + 16
-    implicitHeight: 32
+    implicitWidth: row.implicitWidth + Theme.gap * 2
+    implicitHeight: Theme.itemSize
     radius: Theme.radius
     color: hover.hovered ? Theme.surfaceVariant : "transparent"
-    opacity: enabled ? 1 : 0.5
+    opacity: enabled ? 1 : Theme.disabledOpacity
 
     RowLayout {
         id: row
         anchors.fill: parent
-        anchors.leftMargin: 8
-        anchors.rightMargin: 8
+        anchors.leftMargin: Theme.gap
+        anchors.rightMargin: Theme.gap
         spacing: Theme.iconGap
 
         Icon {
@@ -36,7 +36,7 @@ Rectangle {
         IconImage {
             source: root.icon
             visible: root.icon !== ""
-            implicitSize: 16
+            implicitSize: Theme.iconSize
         }
 
         StyledText {

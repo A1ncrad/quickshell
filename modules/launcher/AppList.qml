@@ -1,6 +1,7 @@
 import Quickshell
 import QtQuick
 import qs.components
+import qs.config
 
 // Search results; the current row is the one Enter launches
 ListView {
@@ -14,9 +15,9 @@ ListView {
         if (count > 0) currentIndex = Math.max(0, Math.min(count - 1, currentIndex + delta))
     }
 
-    implicitWidth: 480
+    implicitWidth: Theme.launcherWidth
     implicitHeight: Math.max(0, Math.min(count, visibleRows) * (44 + spacing) - spacing)
-    spacing: 2
+    spacing: Theme.gapTight
     clip: true
     boundsBehavior: Flickable.StopAtBounds
 

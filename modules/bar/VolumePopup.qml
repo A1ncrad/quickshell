@@ -8,13 +8,12 @@ import qs.services
 // Windows 11-style volume flyout under the bar's right pill
 BarPopup {
     name: "volume"
-    anchors.right: true
-    margins.right: Theme.barMargin
-    implicitWidth: content.implicitWidth
-    implicitHeight: content.implicitHeight
+    panel: content
+    align: Qt.AlignRight
 
     Pill {
         id: content
+        elevated: true
 
         VolumeIcon {
             color: Theme.primary

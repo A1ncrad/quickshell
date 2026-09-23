@@ -21,9 +21,10 @@ PanelWindow {
     }
 
     anchors.bottom: true // horizontally centered by the layer shell
-    margins.bottom: 60
-    implicitWidth: content.implicitWidth
-    implicitHeight: content.implicitHeight
+    // Room around the pill for its shadow
+    margins.bottom: Theme.osdMargin - Theme.shadowSpace
+    implicitWidth: content.implicitWidth + Theme.shadowSpace * 2
+    implicitHeight: content.implicitHeight + Theme.shadowSpace * 2
 
     visible: shown || content.opacity > 0
     color: "transparent"
@@ -34,9 +35,11 @@ PanelWindow {
 
     Pill {
         id: content
+        anchors.centerIn: parent
+        elevated: true
 
         opacity: root.shown ? 1 : 0
-        Behavior on opacity { NumberAnimation { duration: 150 } }
+        Behavior on opacity { NumberAnimation { duration: Theme.durationShort; easing.type: Theme.easing } }
 
         VolumeIcon { color: Theme.primary }
 
@@ -54,7 +57,7 @@ PanelWindow {
 
     Timer {
         id: hideTimer
-        interval: 1500
+        interval: Theme.osdTimeout
         onTriggered: root.shown = false
     }
 

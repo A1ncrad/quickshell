@@ -12,8 +12,8 @@ Rectangle {
 
     signal clicked()
 
-    implicitWidth: 32
-    implicitHeight: 32
+    implicitWidth: Theme.itemSize
+    implicitHeight: Theme.itemSize
     radius: Theme.radius
     color: selected ? Theme.primary
          : today || hover.hovered ? Theme.surfaceVariant

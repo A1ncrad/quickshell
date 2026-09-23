@@ -10,7 +10,7 @@ Pill {
     IconLabel {
         icon: "music_note"
         iconColor: Theme.secondary
-        maxLabelWidth: 200
+        maxLabelWidth: Theme.pillLabelMaxWidth
         label: Media.player ? `${Media.artist || "Unknown"} — ${Media.title}` : "Nothing playing"
     }
 }

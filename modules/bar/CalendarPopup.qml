@@ -1,3 +1,4 @@
+import QtQuick
 import qs.components
 import qs.config
 import qs.modules.common
@@ -6,13 +7,12 @@ import qs.modules.common
 BarPopup {
     id: root
 
-    property real centerX // clock center, in bar coordinates
+    property real clockX // clock center, in bar coordinates
 
     name: "calendar"
-    anchors.left: true
-    margins.left: Theme.barMargin + centerX - implicitWidth / 2
-    implicitWidth: card.implicitWidth
-    implicitHeight: card.implicitHeight
+    panel: card
+    align: Qt.AlignHCenter
+    centerX: Theme.barMargin + clockX
 
     onVisibleChanged: if (visible) calendar.reset()
 

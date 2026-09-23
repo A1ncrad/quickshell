@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.components
+import qs.config
 
 // A tray item's menu drawn in the bar's style via QsMenuOpener.
 // Submenus open in place, with a Back row on top.
@@ -23,7 +24,7 @@ ColumnLayout {
     }
 
     spacing: 0
-    Layout.minimumWidth: 200
+    Layout.minimumWidth: Theme.menuMinWidth
 
     QsMenuOpener {
         id: opener

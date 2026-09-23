@@ -9,7 +9,7 @@ RowLayout {
     property alias icon: iconText.text
     property alias iconColor: iconText.color
     property alias label: labelText.text
-    property real maxLabelWidth: 400
+    property real maxLabelWidth: Theme.labelMaxWidth
 
     spacing: Theme.iconGap
 

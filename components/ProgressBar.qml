@@ -9,8 +9,8 @@ Rectangle {
     property alias fillColor: fill.color
     property bool animated: true
 
-    implicitWidth: 100
-    implicitHeight: 4
+    implicitWidth: Theme.progressWidth
+    implicitHeight: Theme.trackHeight
     radius: height / 2
     color: Theme.surfaceVariant
 
@@ -23,7 +23,7 @@ Rectangle {
 
         Behavior on width {
             enabled: root.animated
-            NumberAnimation { duration: 100; easing.type: Easing.OutCubic }
+            NumberAnimation { duration: Theme.durationFast; easing.type: Theme.easing }
         }
     }
 }

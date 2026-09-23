@@ -14,20 +14,20 @@ Rectangle {
 
     signal clicked()
 
-    implicitWidth: 300
-    implicitHeight: 44
+    implicitWidth: Theme.fieldWidth
+    implicitHeight: Theme.listItemHeight
     radius: Theme.radius
     color: selected ? Theme.surfaceVariant : "transparent"
 
     RowLayout {
         anchors.fill: parent
-        anchors.leftMargin: 10
-        anchors.rightMargin: 10
-        spacing: 12
+        anchors.leftMargin: Theme.padding
+        anchors.rightMargin: Theme.padding
+        spacing: Theme.gapLarge
 
         Item {
-            implicitWidth: 28
-            implicitHeight: 28
+            implicitWidth: Theme.controlSize
+            implicitHeight: Theme.controlSize
 
             IconImage {
                 anchors.fill: parent
@@ -40,7 +40,7 @@ Rectangle {
                 text: root.fallbackIcon
                 visible: root.icon === ""
                 color: Theme.outline
-                font.pixelSize: 22
+                font.pixelSize: Theme.iconSizeLarge
             }
         }
 

@@ -11,10 +11,8 @@ BarPopup {
     property var menuItem: null // tray item whose menu is shown, null for the grid
 
     name: "tray"
-    anchors.right: true
-    margins.right: Theme.barMargin
-    implicitWidth: card.implicitWidth
-    implicitHeight: card.implicitHeight
+    panel: card
+    align: Qt.AlignRight
 
     onVisibleChanged: if (!visible) menuItem = null
 
@@ -24,7 +22,7 @@ BarPopup {
         Grid {
             visible: root.menuItem === null
             columns: 4
-            spacing: 4
+            spacing: Theme.gapSmall
 
             Repeater {
                 model: SystemTray.items

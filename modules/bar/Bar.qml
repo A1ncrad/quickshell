@@ -23,7 +23,7 @@ PanelWindow {
     RowLayout {
         id: center
         anchors.centerIn: parent
-        spacing: 2
+        spacing: Theme.gapTight
 
         ClockPill { id: clock }
         Workspaces {}
@@ -34,7 +34,7 @@ PanelWindow {
         anchors.verticalCenter: parent.verticalCenter
     }
 
-    CalendarPopup { bar: bar; centerX: center.x + clock.x + clock.width / 2 }
+    CalendarPopup { bar: bar; clockX: center.x + clock.x + clock.width / 2 }
     MediaPopup { bar: bar }
     TrayPopup { bar: bar }
     VolumePopup { bar: bar }

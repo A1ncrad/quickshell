@@ -8,12 +8,12 @@ import qs.services
 
 // swaync-style media card: blurred cover as background, cover, title/artist, controls
 ClippingRectangle {
-    implicitWidth: 400
-    implicitHeight: layout.implicitHeight + 24
-    radius: Theme.radius * 1.5
+    id: root
+
+    implicitWidth: Theme.mediaCardWidth
+    implicitHeight: layout.implicitHeight + Theme.cardPadding * 2
+    radius: Theme.radiusLarge
     color: Theme.mediaCardBase
-    border.color: Theme.surfaceVariant
-    border.width: 1
 
     // Background: the cover, blurred and dimmed for readable text
     Image {
@@ -31,31 +31,31 @@ ClippingRectangle {
         visible: backdrop.status === Image.Ready
         opacity: Theme.mediaCoverOpacity
         blurEnabled: true
-        blur: 1
-        blurMax: 64
+        blur: Theme.glassBlur
+        blurMax: Theme.glassBlurMax
     }
 
     Rectangle {
         anchors.fill: parent
-        color: Qt.alpha(Theme.surface, 0.6)
+        color: Theme.mediaCoverScrim
     }
 
     RowLayout {
         id: layout
         anchors.fill: parent
-        anchors.margins: 12
-        spacing: 12
+        anchors.margins: Theme.cardPadding
+        spacing: Theme.gapLarge
 
         RoundedImage {
             source: Media.artUrl
             fallbackIcon: "music_note"
-            Layout.preferredWidth: 100
-            Layout.preferredHeight: 100
+            Layout.preferredWidth: Theme.coverSizeLarge
+            Layout.preferredHeight: Theme.coverSizeLarge
         }
 
         ColumnLayout {
             Layout.fillWidth: true
-            spacing: 4
+            spacing: Theme.gapSmall
 
             StyledText {
                 Layout.fillWidth: true
@@ -75,9 +75,17 @@ ClippingRectangle {
 
             MediaControls {
                 Layout.alignment: Qt.AlignHCenter
-                Layout.topMargin: 8
+                Layout.topMargin: Theme.gap
                 visible: Media.player !== null
             }
         }
+    }
+
+    GlassEdge { radius: root.radius }
+
+    // Outside the clipped content, so the shadow isn't clipped away
+    Shadow {
+        parent: root
+        radius: root.radius
     }
 }

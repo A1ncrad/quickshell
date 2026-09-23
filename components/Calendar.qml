@@ -55,18 +55,18 @@ ColumnLayout {
 
     GridLayout {
         columns: 7
-        rowSpacing: 2
-        columnSpacing: 2
+        rowSpacing: Theme.gapTight
+        columnSpacing: Theme.gapTight
 
         // Su Mo Tu ...
         Repeater {
             model: 7
             StyledText {
-                Layout.preferredWidth: 32
+                Layout.preferredWidth: Theme.itemSize
                 horizontalAlignment: Text.AlignHCenter
                 text: Qt.locale().standaloneDayName((Qt.locale().firstDayOfWeek + index) % 7, Locale.ShortFormat).slice(0, 2)
                 color: Theme.outline
-                font.pixelSize: Theme.fontSizeSmall - 2
+                font.pixelSize: Theme.fontSizeTiny
             }
         }
 

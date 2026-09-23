@@ -31,9 +31,11 @@ PanelWindow {
 
     // Top quarter rather than centered, so the window doesn't jump as results shrink
     anchors.top: true
-    margins.top: screen.height / 4
-    implicitWidth: card.implicitWidth
-    implicitHeight: card.implicitHeight
+    // Room around the card for its shadow; only the card takes input
+    margins.top: screen.height / 4 - Theme.shadowSpace
+    implicitWidth: card.implicitWidth + Theme.shadowSpace * 2
+    implicitHeight: card.implicitHeight + Theme.shadowSpace * 2
+    mask: Region { item: card }
 
     visible: open
     color: "transparent"
@@ -63,11 +65,12 @@ PanelWindow {
 
     Card {
         id: card
+        anchors.centerIn: parent
 
         ParallelAnimation {
             id: appear
-            NumberAnimation { target: card; property: "opacity"; from: 0; to: 1; duration: 120 }
-            NumberAnimation { target: card; property: "scale"; from: 0.97; to: 1; duration: 120; easing.type: Easing.OutCubic }
+            NumberAnimation { target: card; property: "opacity"; from: 0; to: 1; duration: Theme.durationShort; easing.type: Theme.easing }
+            NumberAnimation { target: card; property: "scale"; from: Theme.enterScale; to: 1; duration: Theme.durationShort; easing.type: Theme.easing }
         }
 
         TextField {
@@ -116,7 +119,7 @@ PanelWindow {
 
         StyledText {
             Layout.fillWidth: true
-            Layout.margins: 8
+            Layout.margins: Theme.gap
             visible: list.count === 0
             text: `No apps match "${search.text.trim()}"`
             color: Theme.outline
